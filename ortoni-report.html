@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Playwright HTML report by LetCode Koushik - V1.1.7">
+    <title>Ortoni Playwright Test Report</title>
+    <link rel="icon" href="node_modules/ortoni-report/dist/icon/32.png" type="image/x-icon">
+    <link rel="stylesheet" href="node_modules/ortoni-report/dist/css/main.css">
+</head>
+<style>
+        #summary, #testDetails, button#back-to-summary {
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .filter.active {
+            background-color: var(--bulma-background-active);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        div#testDetails {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .sidebar {
+            overflow-y: auto;
+            max-height: calc(100vh - 100px);
+        }
+
+        aside li {
+            cursor: pointer;
+        }
+        details summary {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details summary::after {
+            content: '';
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(136, 145, 164)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            transform:rotate(-90deg);
+            background-size: 1em;
+            background-repeat: no-repeat;
+            background-position:right-center;
+            width: 1em;
+            height: 1em;
+            transition: transform 0.2s ease-in-out;
+        }
+        details[open] > summary::after {
+            transform: rotate(0deg);
+        }
+        .logoimage{
+            max-width: 100px;
+        }
+
+</style>
+
+<body>
+    <section class="section">
+        <header class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-two-fifths">
+                    <div class="columns is-desktop is-vcentered is-multiline">
+                        <div class="column"><span class="title">Calculadora Clasificación de atención médica domiciliaria ERR </span></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="control">
+                        <input class="input" name="search" type="search" placeholder="Search by test title" />
+                    </div>
+                </div>
+                <div class="column is-1">
+                    <div class="control">
+                        <button id="toggle-theme" data-theme-status="dark" class="button">Theme</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+    <section class="section">
+        <main class="container">
+            <div class="columns">
+                <aside class="column is-two-fifths">
+                    <div class="columns is-mobile">
+                        <div class="column">
+                            <h2 class="title is-4">Tests</h2>
+                        </div>
+                        <div class="column">
+                            <div class="select is-pulled-right">
+                                <select id="project-filter">
+                                    <option value="all">All Projects</option>
+                                        <option value="Google Chrome">Google Chrome</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content sidebar">
+                        <details class="box">
+                            <summary class="is-size-5 has-icon-right">
+                                <div class="icon-text">
+                                    <span class="icon has-text-info">
+                                    <img class="image is-16x16" src="node_modules/ortoni-report/dist/icon/file.png" alt="file name">
+                                    </span>
+                                    <span>calculadora_PHC-piloto.spec.ts</span>
+                                </div>
+                            </summary>
+                            <ul>
+                                <details class="mt-1">
+                                    <summary class="is-size-5 is-capitalized">
+                                        <div class="icon-text">
+                                            <span class="icon has-text-info">
+                                            <img class="image is-16x16" src="node_modules/ortoni-report/dist/icon/test.png" alt="test name">
+                                            </span>
+                                            <span>Test Calculadora ERR</span>
+                                        </div>
+                                    </summary>
+                                    <ul>
+                                        <details class="mb-1">
+                                            <summary class="is-capitalized is-size-6">Google Chrome</summary>
+                                            <ul>
+                                                <li class="media" data-suite-name="Test Calculadora ERR"
+                                                    data-test-duration="22s:844ms"
+                                                    data-project-name="Google Chrome" data-test-id="0"
+                                                    data-test-status="passed ">
+                                                    <div class="icon-text">
+                                                        <span class="icon has-text-info">
+                                                        <img class="image is-16x16" src="node_modules/ortoni-report/dist/icon/pass.png"
+                                                            alt="Pass"></span>
+                                                        <span>ESC-3 Mujeres &gt;&#x3D; 9 &lt; 54 Condición Especial NO, Embarazo NO</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </details>
+                                    </ul>
+                                </details>
+                            </ul>
+                        </details>
+                    </div>
+                </aside>
+                <section class="column is-three-fifths">
+                    <div id="summary">
+                        <div class="columns is-multiline">
+                            <div class="column is-one-third">
+                                <div class="card is-clickable filter" data-status="all">
+                                    <header class="card-header has-text-centered">
+                                        <p class="card-header-title">All Tests</p>
+                                        </header>
+                                        <div class="card-content">
+                                            <div class="content">
+                                            <p class="has-text-centered has-text-primary">1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-third">
+                                <div class="card is-clickable filter" data-status="passed">
+                                    <header class="card-header has-text-centered">
+                                        <p class="card-header-title">Passed</p>
+                                        </header>
+                                        <div class="card-content">
+                                            <div class="content">
+                                            <p class="has-text-centered has-text-success">1</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-third">
+                                <div class="card is-clickable filter" data-status="failed">
+                                    <header class="card-header">
+                                        <p class="card-header-title has-text-centered">Failed</p>
+                                        </header>
+                                        <div class="card-content">
+                                            <div class="content">
+                                            <p class="has-text-centered has-text-danger">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns is-multiline">
+                            <div class="column is-one-third">
+                                <div class="card is-clickable filter" data-status="skipped">
+                                    <header class="card-header has-text-centered">
+                                        <p class="card-header-title">Skipped</p>
+                                        </header>
+                                        <div class="card-content">
+                                            <div class="content">
+                                            <p class="has-text-centered has-text-info">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-third">
+                                <div class="card is-clickable filter" data-status="flaky">
+                                    <header class="card-header has-text-centered">
+                                        <p class="card-header-title">Flaky</p>
+                                        </header>
+                                        <div class="card-content">
+                                            <div class="content">
+                                            <p class="has-text-centered has-text-warning">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-one-third">
+                                <div class="card is-clickable filter" data-status="retry">
+                                    <header class="card-header has-text-centered">
+                                        <p class="card-header-title">Retry</p>
+                                        </header>
+                                        <div class="card-content">
+                                            <div class="content">
+                                            <p class="has-text-centered has-text-info">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <header class="has-text-centered title is-4">Suite</header>
+                            <div class="columns">
+                                <div class="column is-half">
+                                    <h4>Author: Evans</h4>
+                                    <h4>Test Type: Automatico E2E</h4>
+                                    <h4>Duration: 23s:851ms</h4>
+                                    <h4>Success Rate: 100.00 %</h4>
+                                    <h4>Last Run: 26-jul-2024 15:46:48</h4>
+                                </div>
+                                <div class="column is-half">
+                                    <div class="chart-container">
+                                        <canvas id="testChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="testDetails" style="display: none;">
+                        <!-- Back button should be outside the dynamic content -->
+                        <button class="button content" id="back-to-summary"onclick="showSummary()">Back to Summary</button>
+                        <div class="tags" id="attachTags"></div>
+                        <!-- Test Details will be displayed here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </section>
+    <script src="node_modules/ortoni-report/dist/utils/chart.js"></script>
+    <script>
+        function escapeHtml(unsafe) {
+            return unsafe.replace(/[&<"']/g, function (match) {
+                const escapeMap = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                return escapeMap[match];
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const testData = [
+  {
+    "suiteTags": [],
+    "testTags": [],
+    "location": "calculadora_PHC-piloto.spec.ts:41:8",
+    "retry": "",
+    "isRetry": 0,
+    "projectName": "Google Chrome",
+    "suite": "Test Calculadora ERR",
+    "title": "ESC-3 Mujeres >= 9 < 54 Condición Especial NO, Embarazo NO",
+    "status": "passed",
+    "flaky": "expected",
+    "duration": "22s:844ms",
+    "errors": [],
+    "steps": [
+      {
+        "snippet": "",
+        "title": "Before Hooks",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//td[contains(@class,'nombrePaciente separadorInformacionPaciente')])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent((//span[@class='labelHistoriaPaciente ng-binding'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent((//span[@class='ng-binding'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(select#proc-grupoEtnico)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(input#proc-ocupacion)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(select#proc-escolaridad)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.check((//input[@class='isCheck'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(#proc-nombre-responsable)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(#proc-parentesco-responsable)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(#proc-telefono-responsable)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.check((//input[@id='id_viene_acompanante'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(textarea >> nth=1)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.check((//label[text()='¿Paciente solicita asesoría en salud virtual?']/following::input)[2])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//input[@placeholder='Buscar...'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//span[@ng-if='option.visible'])[3])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//h5[contains(text(),\"Clasificación de atención médica domiciliaria ERR\")])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent((//span[text()='Cuando tenga varias respuestas posibles, elija la respuesta que refleje mayor gravedad.'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local?'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//label[text()='¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local?']/following::input)[2])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(body > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > form:nth-child(3) > div:nth-child(2) > span:nth-child(1) > span:nth-child(1) > span:nth-child(9) > span:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2) > span:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2) > div:nth-child(3) > span:nth-child(1) > div:nth-child(2) > span:nth-child(1))",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//*[@id=\"classificationAttentionERRcalc\"]/div/span/span/span/span/span/span/div/div[2]/div/div[1]/span/span/div/div[3]/span/div[3]/span/div[1]/input)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//span[text()='¿Esta embarazada y tiene alguno de los siguientes síntomas?:'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(#classificationAttentionERRcalc >> internal:text=\"No\"i >> nth=4)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='Sistema por el cual consulta'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//label[text()='Sistema por el cual consulta']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Abdominal o gastrointestinal', { exact: true }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='Sistema por el cual consulta']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='¿Cuál es el síntoma principal?'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//label[text()='¿Cuál es el síntoma principal?']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Acidez, agriera, indigestión y náuseas', { exact: true }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='¿Cuál es el síntoma principal?']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.isVisible(//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Antecedente de enfermedad coronaria (ej: infarto, insuficiencia cardiaca) o diabetes mellitus', { exact: true }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.screenshot",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='Modalidad sugerida para la atención'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='Modalidad sugerida para la atención']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='Indicaciones para el usuario'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='Indicaciones para el usuario']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(#analisis-plan)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Firmar Historia' }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.waitForTimeout",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Aceptar' }).isVisible",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Aceptar' }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Firmar Historia' }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.waitForTimeout",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toContainText",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "After Hooks",
+        "location": ""
+      }
+    ],
+    "logs": "\n\nAtencion:  Teleorientación para Clasificación de atención médica domiciliaria ERR \n\n------------------------------------------------------------------\n\n\n\n2024-07-26T20:46:41.729Z\n\n\n\nNombre:  Xxxxxx Xxxxxx, Persona118193 Xxxxxx  \n\nDocumento, edad, sexo: RC 29272485, 9 años, 1 meses(Infancia), Femenino \n\n\n\nEvaluación del riesgo: Clasificación de atención médica domiciliaria ERR     \n\n\n\nCuando tenga varias respuestas posibles, elija la respuesta que refleje mayor gravedad.\n\n\n\n¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local? *  \n\n\n\nRespuesta:  No\n\n\n\n¿Esta embarazada y tiene alguno de los siguientes síntomas?:Dolor bajito o contracciones -Sangrado vaginal.Dolor de cabeza con alguno de los siguientes: pitos en los oídos, visión borrosa o dolor en la boca del estómago.Tiene más de 20 semanas y no siente mover el bebé por más de 6 horas.Tiene salida de líquido abundante por vagina.\n\n\n\nRespuesta:  No\n\n\n\nSistema por el cual consulta *   : Abdominal o gastrointestinal\n\n\n\n¿Cuál es el síntoma principal? *   : Acidez, agriera, indigestión y náuseas\n\n\n\n¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas? *   : Antecedente de enfermedad coronaria (ej: infarto, insuficiencia cardiaca) o diabetes mellitus\n\n\n\n\n\nModalidad sugerida para la atención  *    : Urgencias\n\nIndicaciones para el usuario  *           : Indique al usuario que se dirija a urgencias de inmediato\n\n\n",
+    "filePath": "calculadora_PHC-piloto.spec.ts",
+    "projects": {},
+    "base64Image": false
+  }
+];
+            const testDetails = document.getElementById('testDetails');
+            const summary = document.getElementById('summary');
+            const backButton = document.querySelector('button#back-to-summary');
+
+            const themeButton = document.getElementById("toggle-theme");
+            const preferredTheme = themeButton.getAttribute("data-theme-status");
+            const htmlElement = document.documentElement;
+
+            if (preferredTheme === 'dark') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeButton.classList.add('is-dark');
+                themeButton.textContent = 'Dark';
+            } else if (preferredTheme === 'light') {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeButton.classList.add('is-light');
+                themeButton.textContent = 'Light';
+            }
+
+            themeButton.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                if (newTheme === 'dark') {
+                    themeButton.classList.remove('is-light');
+                    themeButton.classList.add('is-dark');
+                    themeButton.textContent = 'Dark';
+                } else {
+                    themeButton.classList.remove('is-dark');
+                    themeButton.classList.add('is-light');
+                    themeButton.textContent = 'Light';
+                }
+            });
+
+            function showSummary() {
+                summary.style.display = 'block';
+                testDetails.style.display = 'none';
+                backButton.style.display = 'none';
+            }
+
+            window.showSummary = showSummary;
+
+            function attachTags(testTags){
+                const tags = document.querySelector("#attachTags");
+                    testTags.forEach(tag => {
+                        const tagElement = document.createElement('span');
+                        tagElement.className = 'tag is-info';
+                        tagElement.textContent = tag;
+                        tags.appendChild(tagElement);
+                    });
+            }
+
+            function displayTestDetails(test) {
+                const summary = document.getElementById('summary');
+                const testDetails = document.getElementById('testDetails');
+                const backButton = document.querySelector('button#back-to-summary');
+                summary.style.display = 'none';
+                testDetails.style.opacity = '0';
+                testDetails.style.display = 'block';
+                setTimeout(() => {
+                    testDetails.style.opacity = '1';
+                    backButton.style.opacity = '1';
+                }, 50);
+
+                let statusClass = '';
+                let statusText = test.status.toUpperCase();
+                if (test.status.startsWith('passed')) {
+                    statusClass = 'tag is-success';
+                } else if (test.status === 'flaky') {
+                    statusClass = 'tag is-warning';
+                } else if (test.status === 'failed') {
+                    statusClass = 'tag is-danger';
+                } else {
+                    statusClass = 'tag is-info';
+                }
+
+                testDetails.innerHTML = `
+                    <button class="button content" id="back-to-summary" style="display: block" onclick="showSummary()">Back to Summary</button>
+                    <div class="content has-text-centered">
+                        <p class="title">${test.title}</p>
+                        <p class="subtitle" id="filepath">${test.location}</p>
+                    </div>
+                    <div class="columns">
+                        <div class="column content">
+                            <h4 class="title is-4">Status</h4>
+                            <p class="${statusClass}">${statusText}</p>
+                            ${test.duration.length > 0 ? `
+                            <h4 class="title is-4">Duration</h4>
+                            <p class="${statusClass}">${test.duration}</p>` : ""}
+                            <div class="tags" id="attachTags"></div>
+                            ${test.videoPath ? `
+                            <div id="testVideo" class="modal">
+                                <div class="modal-background"></div>
+                                    <div class="modal-content">
+                                        <figure>
+                                            <video controls>
+                                                <source src="file://${test.videoPath}" type="video/webm">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </figure>
+                                    </div>
+                                <button onclick="closeVideo()" class="modal-close is-large" aria-label="close"></button>
+                            </div>
+                            <button class="button" onclick="openVideo()">Attachment: Video</button>
+                            `:''}
+                        </div>
+                        <div class="column content">
+                            ${test.screenshotPath ? `
+                            <div id="testImage" class="modal">
+                                <div class="modal-background"></div>
+                                <div class="modal-content">
+                                    <p class="image">
+                                        <img src="${test.base64Image ? test.screenshotPath : `file://${test.screenshotPath}`}" alt="Screenshot">
+                                    </p>
+                                </div>
+                                <button onclick="closeModal()" class="modal-close is-large" aria-label="close"></button>
+                            </div>
+                            <figure class="image box">
+                                <img onclick="openModal()" src="${test.base64Image ? test.screenshotPath : `file://${test.screenshotPath}`}" alt="Screenshot">
+                            </figure>` : ''}
+                        </div>
+                    </div>
+                    <div class="content">
+                        ${test.steps.length > 0 ? `
+                        <details id="stepopen">
+                            <summary><h4 class="title is-4">Steps</h4></summary>
+                            <span id="stepDetails" class="content"></span>
+                        </details>
+                        `: ``}
+                    </div class="content">
+                    <div>
+                        ${test.errors.length ? `
+                        <h4 class="title is-4">Errors</h4>
+                        <div class="content">
+                            <pre><code class="data-lang=js">${escapeHtml(test.errors.join('\n'))}</code></pre>
+                        </div>` : ''}
+                    </div>
+                    <div>
+                        ${test.logs ? `
+                        <h4 class="title is-4">Logs</h4>
+                        <div class="box">
+                            <pre>${escapeHtml(test.logs)}</pre>
+                        </div>` : ''}
+                    </div>
+                `;
+
+                const stepDetailsDiv = document.getElementById('stepDetails');
+                if(stepDetailsDiv){
+                    const stepsList = attachSteps(test);
+                    const detail = document.getElementById("stepopen");
+                    if(test.errors.length > 0){
+                        detail.setAttribute("open", "");
+                    }
+                    stepDetailsDiv.appendChild(stepsList);
+                }
+                attachTags(test.testTags);
+            }
+
+            function attachSteps(test) {
+                const stepsList = document.createElement("ul");
+                stepsList.setAttribute("id", "steps");
+                stepsList.innerHTML = '';
+                test.steps.forEach(step => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong class="${step.snippet ? 'has-text-danger' : ''}">${step.title}</strong>`;
+                    if (step.snippet) {
+                        const pre = document.createElement('pre');
+                        const code = document.createElement('code');
+                        const locationText = step.location ? `\n\nat: ${step.location}` : '';
+                        code.textContent = `${step.snippet}${locationText}`;
+                        code.setAttribute('data-lang', 'js');
+                        pre.appendChild(code);
+                        li.appendChild(pre);
+                    }
+                    stepsList.appendChild(li);
+                });
+                return stepsList;
+            }
+
+
+            function attachEventListeners() {
+                const testItems = document.querySelectorAll('[data-test-id]');
+                testItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const testId = item.getAttribute('data-test-id');
+                        const test = testData[testId];
+                        displayTestDetails(test);
+                    });
+                });
+
+                const filters = document.querySelectorAll('.filter');
+                filters.forEach(filter => {
+                    filter.addEventListener('click', () => {
+                        const status = filter.getAttribute('data-status');
+                        filters.forEach(f => {
+                            if (f.getAttribute('data-status')) {
+                                f.classList.remove('active');
+                            }
+                        });
+                        filter.classList.add('active');
+                        applyFilters();
+                    });
+                });
+
+                const projectFilter = document.getElementById('project-filter');
+                projectFilter.addEventListener('change', () => {
+                    applyFilters();
+                });
+            }
+
+            function applyFilters() {
+                const selectedProject = document.getElementById('project-filter').value;
+                const activeFilter = document.querySelector('.filter.active');
+                const selectedStatus = activeFilter ? activeFilter.getAttribute('data-status') : 'all';
+
+                const testItems = document.querySelectorAll('li[data-test-id]');
+                const detailsElements = document.querySelectorAll('details');
+
+                detailsElements.forEach(details => {
+                    let shouldShowDetails = false;
+                    const items = details.querySelectorAll('li[data-test-id]');
+                    items.forEach(item => {
+                        const projectName = item.getAttribute('data-project-name').trim();
+                        const testStatus = item.getAttribute('data-test-status').trim();
+                        const matchesProject = (selectedProject === 'all' || projectName === selectedProject);
+                        const matchesStatus = (selectedStatus === 'all' || testStatus.includes(selectedStatus) ||
+                            (selectedStatus === 'failed' && (testStatus === 'failed' || testStatus === 'timedOut')) ||
+                            (selectedStatus === 'retry' && testStatus.includes('retry')) ||
+                            (selectedStatus === 'flaky' && testStatus.includes('flaky')));
+
+                        if (matchesProject && matchesStatus) {
+                            item.classList.remove('is-hidden');
+                            shouldShowDetails = true;
+                        } else {
+                            item.classList.add('is-hidden');
+                        }
+                    });
+                    details.open = shouldShowDetails;
+                    details.classList.toggle('is-hidden', !shouldShowDetails);
+                });
+            }
+
+            const searchInput = document.querySelector('input[name="search"]');
+            const detailsElements = document.querySelectorAll('details');
+            function filterTests(search){
+                const searchTerm = search.toLowerCase();
+                const testItems = document.querySelectorAll('[data-test-id]');
+
+                if (searchTerm) {
+                    detailsElements.forEach(detail => {
+                        detail.open = false; // Collapse all details initially
+                    });
+
+                    testItems.forEach(item => {
+                        const testTitle = item.textContent.toLowerCase();
+                        if (testTitle.includes(searchTerm)) {
+                            item.style.display = 'block'; // Show matching test item
+
+                            let parent = item.parentElement;
+                            while (parent && parent.tagName !== 'ASIDE') {
+                                if (parent.tagName === 'DETAILS') {
+                                    parent.open = true;
+                                }
+                                parent = parent.parentElement;
+                            }
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                } else {
+                    testItems.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                    detailsElements.forEach(detail => {
+                        detail.open = false;
+                    });
+                }
+            }
+            function debounce(func, wait) {
+                let timeout;
+                return function(...args) {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            }
+            
+            const debouncedSearch = debounce((event) => {
+                filterTests(event.target.value);
+            }, 300);
+
+            searchInput.addEventListener('input', debouncedSearch);
+
+            const ctx = document.getElementById('testChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Passed', 'Failed', 'Skipped','Flaky'],
+                    datasets: [{
+                        data: [1, 0, 0, 0],
+                        backgroundColor: ['#28a745', '#dc3545', '#d5d4a1', '#FFB704']
+                        }]
+                    },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+
+            attachEventListeners();
+        });
+
+    </script>
+<script src="node_modules/ortoni-report/dist/utils/modal.js"></script>
+</body>
+</html>
