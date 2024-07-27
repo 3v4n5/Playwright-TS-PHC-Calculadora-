@@ -268,17 +268,16 @@ export class FirmaAtencion {
       expect(sintomaPpalInp).toEqual(sintomaPpal);
       
       if(await this.sintomaAsociadoLabel.isVisible()){
+        var sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent()
         await this.sintomaAsociadoInput.click()
         await this.page.getByText(sintomaAsociado, {exact:true}).click()
-        let sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue()
+        var sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue()
         await this.page.waitForTimeout(500)
         expect(sintomaAsociadoInp).toEqual(sintomaAsociado);
       }
 
       
-      const sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent()
       await this.page.screenshot({path: "tests/Screenshots/calculadora/calculadora.png",});
-      const sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue()
 
       const modalidadTxt = await this.modalidadSugeridaLabel.textContent()
       const modalidadInp = await this.modalidadSugeridaInput.inputValue()
@@ -304,7 +303,9 @@ export class FirmaAtencion {
         console.log("")
         console.log(sintomaPpalLbl,":",sintomaPpalInp)
         console.log("")
-        console.log(sintomaAsociadoLbl,":",sintomaAsociadoInp)
+        if(sintomaAsociadoLbl && sintomaAsociadoInp){
+          console.log(sintomaAsociadoLbl,":",sintomaAsociadoInp)
+        }else{console.log("Sin Modificador")}
         console.log("")
         console.log(modalidadTxt,":",modalidadInp)
         console.log(indicacionesTxt,"       :",indicacionesInp)
