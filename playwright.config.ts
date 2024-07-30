@@ -31,7 +31,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   
-  reporter: "html",
+  reporter: [["html"],['dot']],
   //reporter: [['ortoni-report', reportConfig], ['dot']], 
   
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -86,27 +86,27 @@ export default defineConfig({
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
     // },
-    {
-      name: "Google Chrome",
-      use: {
-        channel: "chrome",
-        launchOptions: {
-          args: ["--ignore-certificate-errors"],
-        },
-        viewport: { width: 1420, height: 900 },
-      },
-    },
     // {
-    //   name: "chrome web",
+    //   name: "Google Chrome",
     //   use: {
-    //     browserName: "chromium",
-    //     // launchOptions: {
-    //     //   args: ['--ignore-certificate-errors']
-    //     // },
+    //     channel: "chrome",
+    //     launchOptions: {
+    //       args: ["--ignore-certificate-errors"],
+    //     },
     //     viewport: { width: 1420, height: 900 },
-    //     //baseURL: BASEURL,
     //   },
     // },
+    {
+      name: "chrome web",
+      use: {
+        browserName: "chromium",
+        launchOptions: {
+          //args: ['--ignore-certificate-errors']
+        },
+        viewport: { width: 1420, height: 900 },
+        //baseURL: BASEURL,
+      },
+    },
   ],
 
   /* Run your local dev server before starting the tests */

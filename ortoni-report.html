@@ -109,7 +109,7 @@
                             <div class="select is-pulled-right">
                                 <select id="project-filter">
                                     <option value="all">All Projects</option>
-                                        <option value="Google Chrome">Google Chrome</option>
+                                        <option value="chrome web">chrome web</option>
                                 </select>
                             </div>
                         </div>
@@ -136,17 +136,28 @@
                                     </summary>
                                     <ul>
                                         <details class="mb-1">
-                                            <summary class="is-capitalized is-size-6">Google Chrome</summary>
+                                            <summary class="is-capitalized is-size-6">chrome web</summary>
                                             <ul>
                                                 <li class="media" data-suite-name="Test Calculadora ERR"
-                                                    data-test-duration="22s:844ms"
-                                                    data-project-name="Google Chrome" data-test-id="0"
+                                                    data-test-duration="18s:773ms"
+                                                    data-project-name="chrome web" data-test-id="0"
                                                     data-test-status="passed ">
                                                     <div class="icon-text">
                                                         <span class="icon has-text-info">
                                                         <img class="image is-16x16" src="node_modules/ortoni-report/dist/icon/pass.png"
                                                             alt="Pass"></span>
                                                         <span>ESC-3 Mujeres &gt;&#x3D; 9 &lt; 54 Condición Especial NO, Embarazo NO</span>
+                                                    </div>
+                                                </li>
+                                                <li class="media" data-suite-name="Test Calculadora ERR"
+                                                    data-test-duration="19s:137ms"
+                                                    data-project-name="chrome web" data-test-id="1"
+                                                    data-test-status="passed ">
+                                                    <div class="icon-text">
+                                                        <span class="icon has-text-info">
+                                                        <img class="image is-16x16" src="node_modules/ortoni-report/dist/icon/pass.png"
+                                                            alt="Pass"></span>
+                                                        <span>ESC-4 Hombres &gt;&#x3D; 9 &lt; 54 Condición Especial NO</span>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -167,7 +178,7 @@
                                         </header>
                                         <div class="card-content">
                                             <div class="content">
-                                            <p class="has-text-centered has-text-primary">1</p>
+                                            <p class="has-text-centered has-text-primary">2</p>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +190,7 @@
                                         </header>
                                         <div class="card-content">
                                             <div class="content">
-                                            <p class="has-text-centered has-text-success">1</p>
+                                            <p class="has-text-centered has-text-success">2</p>
                                         </div>
                                     </div>
                                 </div>
@@ -241,9 +252,9 @@
                                 <div class="column is-half">
                                     <h4>Author: Evans</h4>
                                     <h4>Test Type: Automatico E2E</h4>
-                                    <h4>Duration: 23s:851ms</h4>
+                                    <h4>Duration: 20s:058ms</h4>
                                     <h4>Success Rate: 100.00 %</h4>
-                                    <h4>Last Run: 26-jul-2024 15:46:48</h4>
+                                    <h4>Last Run: 27-jul-2024 11:14:03</h4>
                                 </div>
                                 <div class="column is-half">
                                     <div class="chart-container">
@@ -286,17 +297,72 @@
     "location": "calculadora_PHC-piloto.spec.ts:41:8",
     "retry": "",
     "isRetry": 0,
-    "projectName": "Google Chrome",
+    "projectName": "chrome web",
     "suite": "Test Calculadora ERR",
     "title": "ESC-3 Mujeres >= 9 < 54 Condición Especial NO, Embarazo NO",
     "status": "passed",
     "flaky": "expected",
-    "duration": "22s:844ms",
+    "duration": "18s:773ms",
     "errors": [],
     "steps": [
       {
         "snippet": "",
         "title": "Before Hooks",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(#btnOpenFinder)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(input[name=\"identificacion\"])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//button[normalize-space()=\"Buscar paciente\"])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//img[@title='Atender'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(input[placeholder='Escribe para filtrar las atenciones...'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Teleorientación para Clasificación de atención médica domiciliaria ERR', { exact: true }).textContent",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Teleorientación para Clasificación de atención médica domiciliaria ERR', { exact: true }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(//td[@class='width-80']//select[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//*[@id=\"ng-app\"]/div[3]/div/div/span/div[3]/div/button[2])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.waitForTimeout",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//div[@class='modal-footer']//button[1])",
         "location": ""
       },
       {
@@ -431,12 +497,17 @@
       },
       {
         "snippet": "",
-        "title": "locator.getByText('Abdominal o gastrointestinal', { exact: true }).click",
+        "title": "locator.getByText('Neurológico o cabeza', { exact: true }).click",
         "location": ""
       },
       {
         "snippet": "",
         "title": "locator.inputValue((//label[text()='Sistema por el cual consulta']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
         "location": ""
       },
       {
@@ -451,7 +522,7 @@
       },
       {
         "snippet": "",
-        "title": "locator.getByText('Acidez, agriera, indigestión y náuseas', { exact: true }).click",
+        "title": "locator.getByText('Parálisis facial o en la cara (ej: boca torcida u ojo cerrado)', { exact: true }).click",
         "location": ""
       },
       {
@@ -461,32 +532,17 @@
       },
       {
         "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
         "title": "locator.isVisible(//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?'])",
         "location": ""
       },
       {
         "snippet": "",
-        "title": "locator.click((//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?']/following::input)[1])",
-        "location": ""
-      },
-      {
-        "snippet": "",
-        "title": "locator.getByText('Antecedente de enfermedad coronaria (ej: infarto, insuficiencia cardiaca) o diabetes mellitus', { exact: true }).click",
-        "location": ""
-      },
-      {
-        "snippet": "",
-        "title": "locator.textContent(//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?'])",
-        "location": ""
-      },
-      {
-        "snippet": "",
         "title": "page.screenshot",
-        "location": ""
-      },
-      {
-        "snippet": "",
-        "title": "locator.inputValue((//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?']/following::input)[1])",
         "location": ""
       },
       {
@@ -565,9 +621,328 @@
         "location": ""
       }
     ],
-    "logs": "\n\nAtencion:  Teleorientación para Clasificación de atención médica domiciliaria ERR \n\n------------------------------------------------------------------\n\n\n\n2024-07-26T20:46:41.729Z\n\n\n\nNombre:  Xxxxxx Xxxxxx, Persona118193 Xxxxxx  \n\nDocumento, edad, sexo: RC 29272485, 9 años, 1 meses(Infancia), Femenino \n\n\n\nEvaluación del riesgo: Clasificación de atención médica domiciliaria ERR     \n\n\n\nCuando tenga varias respuestas posibles, elija la respuesta que refleje mayor gravedad.\n\n\n\n¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local? *  \n\n\n\nRespuesta:  No\n\n\n\n¿Esta embarazada y tiene alguno de los siguientes síntomas?:Dolor bajito o contracciones -Sangrado vaginal.Dolor de cabeza con alguno de los siguientes: pitos en los oídos, visión borrosa o dolor en la boca del estómago.Tiene más de 20 semanas y no siente mover el bebé por más de 6 horas.Tiene salida de líquido abundante por vagina.\n\n\n\nRespuesta:  No\n\n\n\nSistema por el cual consulta *   : Abdominal o gastrointestinal\n\n\n\n¿Cuál es el síntoma principal? *   : Acidez, agriera, indigestión y náuseas\n\n\n\n¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas? *   : Antecedente de enfermedad coronaria (ej: infarto, insuficiencia cardiaca) o diabetes mellitus\n\n\n\n\n\nModalidad sugerida para la atención  *    : Urgencias\n\nIndicaciones para el usuario  *           : Indique al usuario que se dirija a urgencias de inmediato\n\n\n",
+    "logs": "\n\nAtencion:  Teleorientación para Clasificación de atención médica domiciliaria ERR \n\n------------------------------------------------------------------\n\n\n\n2024-07-27T16:13:57.046Z\n\n\n\nNombre:  Xxxxxx Xxxxxx, Persona37131  \n\nDocumento, edad, sexo: CC 43650277, 53 años(Adultez), Femenino \n\n\n\nEvaluación del riesgo: Clasificación de atención médica domiciliaria ERR     \n\n\n\nCuando tenga varias respuestas posibles, elija la respuesta que refleje mayor gravedad.\n\n\n\n¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local? *  \n\n\n\nRespuesta:  No\n\n\n\n¿Esta embarazada y tiene alguno de los siguientes síntomas?:Dolor bajito o contracciones -Sangrado vaginal.Dolor de cabeza con alguno de los siguientes: pitos en los oídos, visión borrosa o dolor en la boca del estómago.Tiene más de 20 semanas y no siente mover el bebé por más de 6 horas.Tiene salida de líquido abundante por vagina.\n\n\n\nRespuesta:  No\n\n\n\nSistema por el cual consulta *   : Neurológico o cabeza\n\n\n\n¿Cuál es el síntoma principal? *   : Parálisis facial o en la cara (ej: boca torcida u ojo cerrado)\n\n\n\nSin Modificador\n\n\n\nModalidad sugerida para la atención  *    : Urgencias\n\nIndicaciones para el usuario  *           : Indique al usuario que se dirija a urgencias de inmediato\n\n\n",
     "filePath": "calculadora_PHC-piloto.spec.ts",
     "projects": {},
+    "base64Image": false
+  },
+  {
+    "suiteTags": [],
+    "testTags": [],
+    "location": "calculadora_PHC-piloto.spec.ts:59:8",
+    "retry": "",
+    "isRetry": 0,
+    "projectName": "chrome web",
+    "suite": "Test Calculadora ERR",
+    "title": "ESC-4 Hombres >= 9 < 54 Condición Especial NO",
+    "status": "passed",
+    "flaky": "expected",
+    "duration": "19s:137ms",
+    "errors": [],
+    "steps": [
+      {
+        "snippet": "",
+        "title": "Before Hooks",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(#btnOpenFinder)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(input[name=\"identificacion\"])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//button[normalize-space()=\"Buscar paciente\"])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//img[@title='Atender'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(input[placeholder='Escribe para filtrar las atenciones...'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Teleorientación para Clasificación de atención médica domiciliaria ERR', { exact: true }).textContent",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Teleorientación para Clasificación de atención médica domiciliaria ERR', { exact: true }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(//td[@class='width-80']//select[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//*[@id=\"ng-app\"]/div[3]/div/div/span/div[3]/div/button[2])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.waitForTimeout",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//div[@class='modal-footer']//button[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//td[contains(@class,'nombrePaciente separadorInformacionPaciente')])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent((//span[@class='labelHistoriaPaciente ng-binding'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent((//span[@class='ng-binding'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(select#proc-grupoEtnico)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(input#proc-ocupacion)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(select#proc-escolaridad)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.check((//input[@class='isCheck'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(#proc-nombre-responsable)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.selectOption(#proc-parentesco-responsable)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(#proc-telefono-responsable)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.check((//input[@id='id_viene_acompanante'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(textarea >> nth=1)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.check((//label[text()='¿Paciente solicita asesoría en salud virtual?']/following::input)[2])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click(//input[@placeholder='Buscar...'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//span[@ng-if='option.visible'])[3])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//h5[contains(text(),\"Clasificación de atención médica domiciliaria ERR\")])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent((//span[text()='Cuando tenga varias respuestas posibles, elija la respuesta que refleje mayor gravedad.'])[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local?'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//label[text()='¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local?']/following::input)[2])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(body > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(3) > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > form:nth-child(3) > div:nth-child(2) > span:nth-child(1) > span:nth-child(1) > span:nth-child(9) > span:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2) > span:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2) > div:nth-child(3) > span:nth-child(1) > div:nth-child(2) > span:nth-child(1))",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='Sistema por el cual consulta'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//label[text()='Sistema por el cual consulta']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Neurológico o cabeza', { exact: true }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='Sistema por el cual consulta']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='¿Cuál es el síntoma principal?'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.click((//label[text()='¿Cuál es el síntoma principal?']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByText('Parálisis facial o en la cara (ej: boca torcida u ojo cerrado)', { exact: true }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='¿Cuál es el síntoma principal?']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.isVisible(//label[text()='¿El síntoma principal está asociado con alguno de los siguientes síntomas o caracteristicas?'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.screenshot",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='Modalidad sugerida para la atención'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='Modalidad sugerida para la atención']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.textContent(//label[text()='Indicaciones para el usuario'])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.inputValue((//label[text()='Indicaciones para el usuario']/following::input)[1])",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toEqual",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.fill(#analisis-plan)",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Firmar Historia' }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.waitForTimeout",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Aceptar' }).isVisible",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Aceptar' }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "locator.getByRole('button', { name: 'Firmar Historia' }).click",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "page.waitForTimeout",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "expect.toContainText",
+        "location": ""
+      },
+      {
+        "snippet": "",
+        "title": "After Hooks",
+        "location": ""
+      }
+    ],
+    "logs": "\n\nAtencion:  Teleorientación para Clasificación de atención médica domiciliaria ERR \n\n------------------------------------------------------------------\n\n\n\n2024-07-27T16:13:59.131Z\n\n\n\nNombre:  Xxxxxx Xxxxxx, Persona136234 Xxxxxx  \n\nDocumento, edad, sexo: CC 16743572, 52 años(Adultez), Masculino \n\n\n\nEvaluación del riesgo: Clasificación de atención médica domiciliaria ERR     \n\n\n\nCuando tenga varias respuestas posibles, elija la respuesta que refleje mayor gravedad.\n\n\n\n¿Paciente en condición especial (Anticuagulado, diálisis, Quimioterapia, inmunosuprimido o VIH) y tiene fiebre o signos de infección sistémica o local? *  \n\n\n\nRespuesta:  No\n\n\n\nSistema por el cual consulta *   : Neurológico o cabeza\n\n\n\n¿Cuál es el síntoma principal? *   : Parálisis facial o en la cara (ej: boca torcida u ojo cerrado)\n\n\n\nSin Modificador\n\n\n\n\n\nModalidad sugerida para la atención  *    : Urgencias\n\nIndicaciones para el usuario  *           : Indique al usuario que se dirija a urgencias de inmediato\n\n\n",
+    "filePath": "calculadora_PHC-piloto.spec.ts",
     "base64Image": false
   }
 ];
@@ -868,7 +1243,7 @@
                 data: {
                     labels: ['Passed', 'Failed', 'Skipped','Flaky'],
                     datasets: [{
-                        data: [1, 0, 0, 0],
+                        data: [2, 0, 0, 0],
                         backgroundColor: ['#28a745', '#dc3545', '#d5d4a1', '#FFB704']
                         }]
                     },

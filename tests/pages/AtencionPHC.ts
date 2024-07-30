@@ -3,6 +3,7 @@ import { Locator, Page } from '@playwright/test';
 export class AtencionPHC {
     private page: Page;
     private abrirBuscar: Locator;
+    private tipoDocumento: Locator;
     private inputPaciente: Locator;
     private btnBuscar: Locator;
     private btnAtender: Locator;
@@ -21,6 +22,7 @@ export class AtencionPHC {
     constructor(page: Page) {
         this.page = page;
         this.abrirBuscar = page.locator('#btnOpenFinder')
+        this.tipoDocumento = page.locator("//select[@ng-model='typeIdentification']")
         this.inputPaciente = page.locator('input[name="identificacion"]')
         this.btnBuscar = page.locator('//button[normalize-space()="Buscar paciente"]')
         this.btnAtender = page.locator("//img[@title='Atender']")
@@ -41,10 +43,11 @@ export class AtencionPHC {
         this.btnRemisionesSLW = this.page.locator("//div[@class='modal-footer']//button[1]");
     }
 
-    async iniciarNuevaAtencion(cedula: string) {
+    async iniciarNuevaAtencion(tipoDocumento: string, numeroDocumento: string) {
 
         await this.abrirBuscar.click()
-        await this.inputPaciente.fill(cedula)
+        await this.tipoDocumento.selectOption({label: tipoDocumento})
+        await this.inputPaciente.fill(numeroDocumento)
         await this.btnBuscar.click()
         await this.btnAtender.click();
     }
@@ -64,11 +67,13 @@ export class AtencionPHC {
         await this.seleccionarPlan.selectOption({ value: plan })
         await this.btnIniciarAtencion.click()
         
-        await this.page.waitForTimeout(2000)
+        await this.page.waitForTimeout(500)
 
-        if(this.btnRemisionesSLW) this.btnRemisionesSLW.click()
+        // if(this.btnRemisionesSLW) this.btnRemisionesSLW.click()
          
-        if(this.btnConsentInform) this.btnConsentInform.click() 
+        //     await this.page.waitForTimeout(200)
+
+        if(await this.btnConsentInform.isVisible()){await this.btnConsentInform.click()} 
 
         await this.btnIniciarRegistro.click()
 

@@ -13,7 +13,8 @@ export const Credenciales = {
 }
 
 export const Atencion = {
-    CEDULA :  `${process.env.CEDULA}`,
+    TIPO_DOCUMENTO: `${process.env.TIPO_DOCUMENTO}`,
+    NUMERO_DOCUMENTO :  `${process.env.NUMERO_DOCUMENTO}`,
     ATENCION : `${process.env.ATENCION}`,
     PLAN : `${process.env.PLAN}`
 }

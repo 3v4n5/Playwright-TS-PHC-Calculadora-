@@ -58,7 +58,7 @@ export class FirmaAtencion {
 
     this.nombrePaciente = this.page.locator("//td[contains(@class,'nombrePaciente separadorInformacionPaciente')]");
     this.tipoDocumento = this.page.locator("(//span[@class='labelHistoriaPaciente ng-binding'])[1]");
-    this.numeroDocumento = this.page.locator("(//span[@class='ng-binding'])[1]");
+    this.numeroDocumento = this.page.locator("(//td[@class='separadorInformacionPaciente']//span)[2]");
     this.raza = this.page.locator("select#proc-grupoEtnico");
     this.ocupacion = this.page.locator("input#proc-ocupacion");
     this.escolaridad = this.page.locator("select#proc-escolaridad");
@@ -152,7 +152,7 @@ export class FirmaAtencion {
     await this.asesoriaVirtual.check({ force: true });
   }
 
-  async calculadoraSiTodos(calculadora: string, modalidad: string, indicaciones: string) {
+  async condicionEspecialSiTodos(calculadora: string, modalidad: string, indicaciones: string) {
     await this.page.locator(this.buscar).click();
     await this.page.locator(this.seleccionarCalculadora).click();
     const msj = await this.page.locator(this.encabezadoSeccionCalculadora).textContent();
@@ -189,7 +189,7 @@ export class FirmaAtencion {
     console.log("")
   }
 
-  async calculadoraNoMujeresSiEmbarazoEntre9_54(calculadora: string, modalidad: string, indicaciones: string) {
+  async condicionEspecialNoEmbarazoSiMujeresEntre9_54(calculadora: string, modalidad: string, indicaciones: string) {
     await this.page.locator(this.buscar).click();
     await this.page.locator(this.seleccionarCalculadora).click();
     const msj = await this.page.locator(this.encabezadoSeccionCalculadora).textContent();
@@ -234,7 +234,8 @@ export class FirmaAtencion {
     console.log(indicacionesTxt,"       :",indicacionesInp)
     console.log("")
   }
-  async calculadoraNoMujeresNoEmbarazoEntre9_54(
+
+  async condicionEspecialNoEmbarazoNoMujeresHombresMayores_9(
     calculadora: string, sistemaConsulta: string, sintomaPpal: string, sintomaAsociado: string, 
     modalidad: string, indicaciones: string ) {
       
@@ -248,34 +249,39 @@ export class FirmaAtencion {
       
       await this.preguntaRadioButton2.click();
       const respuestaNo = await this.no.textContent()
-
-      await this.embarazadaRadioButtonNo.click();
-      const embarazadaP = await this.embarazada.textContent()    
-      const embarazadaR = await this.embarazadaTxtNo.textContent() 
+      
+      var embarazadaPregunta;
+      var embarazadaRespuesta;
+      if(await this.embarazadaRadioButtonNo.isVisible()){
+        await this.embarazadaRadioButtonNo.click();
+         embarazadaPregunta = await this.embarazada.textContent()    
+         embarazadaRespuesta = await this.embarazadaTxtNo.textContent() 
+      }
 
       const sistemaConsultaLbl = await this.sistemaConsultaLabel.textContent()
       await this.sistemaConsultaInput.click()
       this.page.getByText(sistemaConsulta, {exact: true}).click()
-      await this.page.waitForTimeout(500)
+      await this.page.waitForTimeout(200)
       const sistemaConsultaInp = await this.sistemaConsultaInput.inputValue()
       expect(sistemaConsultaInp).toEqual(sistemaConsulta);
 
       const sintomaPpalLbl = await this.sintomaPrincipalLabel.textContent();
       await this.sintomaPrincipalInput.click()
       this.page.getByText(sintomaPpal, {exact: true}).click()
-      await this.page.waitForTimeout(500)
+      await this.page.waitForTimeout(200)
       const sintomaPpalInp = await this.sintomaPrincipalInput.inputValue();
       expect(sintomaPpalInp).toEqual(sintomaPpal);
       
+      var sintomaAsociadoLbl;
+      var sintomaAsociadoInp;
       if(await this.sintomaAsociadoLabel.isVisible()){
-        var sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent()
+        sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent()
         await this.sintomaAsociadoInput.click()
         await this.page.getByText(sintomaAsociado, {exact:true}).click()
-        var sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue()
-        await this.page.waitForTimeout(500)
+        await this.page.waitForTimeout(200)
+        sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue()
         expect(sintomaAsociadoInp).toEqual(sintomaAsociado);
       }
-
       
       await this.page.screenshot({path: "tests/Screenshots/calculadora/calculadora.png",});
 
@@ -295,10 +301,8 @@ export class FirmaAtencion {
         console.log("")
         console.log("Respuesta: ", respuestaNo);
         console.log("")
-        console.log(embarazadaP)
-        console.log("")
-        console.log("Respuesta: ", embarazadaR);
-        console.log("")
+        if(embarazadaPregunta) console.log(embarazadaPregunta), console.log("") 
+        if(embarazadaRespuesta) console.log("Respuesta: ", embarazadaRespuesta), console.log("")
         console.log(sistemaConsultaLbl,":",sistemaConsultaInp)
         console.log("")
         console.log(sintomaPpalLbl,":",sintomaPpalInp)
@@ -311,7 +315,8 @@ export class FirmaAtencion {
         console.log(indicacionesTxt,"       :",indicacionesInp)
         console.log("")
   }
-  async calculadoraNoHombresEntre9_54(
+
+  async condicionEspecialNoMujeresHombresMenores_9(
     calculadora: string, sistemaConsulta: string, sintomaPpal: string,
      sintomaAsociado: string, modalidad: string, indicaciones: string ) {
       
@@ -329,26 +334,27 @@ export class FirmaAtencion {
       const sistemaConsultaLbl = await this.sistemaConsultaLabel.textContent()
       await this.sistemaConsultaInput.click()
       this.page.getByText(sistemaConsulta, {exact: true}).click()
-      await this.page.waitForTimeout(1000)
+      await this.page.waitForTimeout(200)
       const sistemaConsultaInp = await this.sistemaConsultaInput.inputValue()
       expect(sistemaConsultaInp).toEqual(sistemaConsulta)
 
       const sintomaPpalLbl = await this.sintomaPrincipalLabel.textContent();
       await this.sintomaPrincipalInput.click()
       this.page.getByText(sintomaPpal, {exact: true}).click()
-      await this.page.waitForTimeout(1000)
+      await this.page.waitForTimeout(200)
       const sintomaPpalInp = await this.sintomaPrincipalInput.inputValue();
       expect(sintomaPpalInp).toEqual(sintomaPpal)
       
+      var sintomaAsociadoLbl;
+      var sintomaAsociadoInp;
       if(await this.sintomaAsociadoLabel.isVisible()){
+        sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent()
         await this.sintomaAsociadoInput.click()
-        this.page.getByText(sintomaAsociado, {exact:true}).click()
-        await this.page.waitForTimeout(1000)
+        await this.page.getByText(sintomaAsociado, {exact:true}).click()
+        await this.page.waitForTimeout(200)
+        sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue()
+        expect(sintomaAsociadoInp).toEqual(sintomaAsociado);
       }
-      
-      const sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent();
-      const sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue();
-      expect(sintomaAsociadoInp).toEqual(sintomaAsociado)
      
       await this.page.screenshot({
         path: "tests/Screenshots/calculadora/calculadora.png",
@@ -374,80 +380,83 @@ export class FirmaAtencion {
         console.log("")
         console.log(sintomaPpalLbl,":",sintomaPpalInp)
         console.log("")
-        console.log(sintomaAsociadoLbl,":",sintomaAsociadoInp)
+        if(sintomaAsociadoLbl && sintomaAsociadoInp){
+          console.log(sintomaAsociadoLbl,":",sintomaAsociadoInp)
+        }else{console.log("Sin Modificador")}
         console.log("")
         console.log("")
         console.log(modalidadTxt,":",modalidadInp)
         console.log(indicacionesTxt,"       :",indicacionesInp)
         console.log("")
   }
-  async calculadoraNoHombresMujeresMenores9Mayores54(
-    calculadora: string, sistemaConsulta: string, sintomaPpal: string,
-     sintomaAsociado: string, modalidad: string, indicaciones: string ) {
-      
-      await this.page.locator(this.buscar).click();
-      await this.page.locator(this.seleccionarCalculadora).click();
-      const msj = await this.page.locator(this.encabezadoSeccionCalculadora).textContent();
-      expect(msj).toEqual("Clasificación de atención médica domiciliaria ERR     ");
-      
-      const textoInformativo = await this.textoInformativo.textContent();
-      const preguntaTodos = await this.textPreguntaTodos.textContent();
-      
-      await this.preguntaRadioButton2.click();
-      const respuestaNo = await this.no.textContent()
 
-      const sistemaConsultaLbl = await this.sistemaConsultaLabel.textContent()
-      await this.sistemaConsultaInput.click()
-      this.page.getByText(sistemaConsulta, {exact: true}).click()
-      await this.page.waitForTimeout(1000)
-      const sistemaConsultaInp = await this.sistemaConsultaInput.inputValue()
-      expect(sistemaConsultaInp).toEqual(sistemaConsulta)
+  // async calculadoraNoHombresMujeresMenores9Mayores54(
+  //   calculadora: string, sistemaConsulta: string, sintomaPpal: string,
+  //    sintomaAsociado: string, modalidad: string, indicaciones: string ) {
+      
+  //     await this.page.locator(this.buscar).click();
+  //     await this.page.locator(this.seleccionarCalculadora).click();
+  //     const msj = await this.page.locator(this.encabezadoSeccionCalculadora).textContent();
+  //     expect(msj).toEqual("Clasificación de atención médica domiciliaria ERR     ");
+      
+  //     const textoInformativo = await this.textoInformativo.textContent();
+  //     const preguntaTodos = await this.textPreguntaTodos.textContent();
+      
+  //     await this.preguntaRadioButton2.click();
+  //     const respuestaNo = await this.no.textContent()
 
-      const sintomaPpalLbl = await this.sintomaPrincipalLabel.textContent();
-      await this.sintomaPrincipalInput.click()
-      this.page.getByText(sintomaPpal, {exact: true}).click()
-      await this.page.waitForTimeout(1000)
-      const sintomaPpalInp = await this.sintomaPrincipalInput.inputValue();
-      expect(sintomaPpalInp).toEqual(sintomaPpal)
+  //     const sistemaConsultaLbl = await this.sistemaConsultaLabel.textContent()
+  //     await this.sistemaConsultaInput.click()
+  //     this.page.getByText(sistemaConsulta, {exact: true}).click()
+  //     await this.page.waitForTimeout(1000)
+  //     const sistemaConsultaInp = await this.sistemaConsultaInput.inputValue()
+  //     expect(sistemaConsultaInp).toEqual(sistemaConsulta)
+
+  //     const sintomaPpalLbl = await this.sintomaPrincipalLabel.textContent();
+  //     await this.sintomaPrincipalInput.click()
+  //     this.page.getByText(sintomaPpal, {exact: true}).click()
+  //     await this.page.waitForTimeout(1000)
+  //     const sintomaPpalInp = await this.sintomaPrincipalInput.inputValue();
+  //     expect(sintomaPpalInp).toEqual(sintomaPpal)
       
-      if(await this.sintomaAsociadoLabel.isVisible()){
-        await this.sintomaAsociadoInput.click()
-        this.page.getByText(sintomaAsociado, {exact:true}).click()
-        await this.page.waitForTimeout(1000)
-      }
+  //     if(await this.sintomaAsociadoLabel.isVisible()){
+  //       await this.sintomaAsociadoInput.click()
+  //       this.page.getByText(sintomaAsociado, {exact:true}).click()
+  //       await this.page.waitForTimeout(1000)
+  //     }
       
-      const sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent();
-      const sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue();
-      expect(sintomaAsociadoInp).toEqual(sintomaAsociado)
+  //     const sintomaAsociadoLbl = await this.sintomaAsociadoLabel.textContent();
+  //     const sintomaAsociadoInp = await this.sintomaAsociadoInput.inputValue();
+  //     expect(sintomaAsociadoInp).toEqual(sintomaAsociado)
      
-      const modalidadTxt = await this.modalidadSugeridaLabel.textContent()
-        await this.page.screenshot({path: "tests/Screenshots/calculadora/calculadora.png"});
-      const modalidadInp = await this.modalidadSugeridaInput.inputValue()
-      expect(modalidadInp).toEqual(modalidad)
+  //     const modalidadTxt = await this.modalidadSugeridaLabel.textContent()
+  //       await this.page.screenshot({path: "tests/Screenshots/calculadora/calculadora.png"});
+  //     const modalidadInp = await this.modalidadSugeridaInput.inputValue()
+  //     expect(modalidadInp).toEqual(modalidad)
 
-      const indicacionesTxt = await this.indicacionesUsuarioLabel.textContent()
-      const indicacionesInp = await this.indicacionesUsuarioInput.inputValue()
-      expect(indicacionesInp).toEqual(indicaciones)
+  //     const indicacionesTxt = await this.indicacionesUsuarioLabel.textContent()
+  //     const indicacionesInp = await this.indicacionesUsuarioInput.inputValue()
+  //     expect(indicacionesInp).toEqual(indicaciones)
 
-        console.log("Evaluación del riesgo: " + msj);
-        console.log("");  
-        console.log(textoInformativo);
-        console.log("")
-        console.log(preguntaTodos);
-        console.log("")
-        console.log("Respuesta: ", respuestaNo);
-        console.log("")
-        console.log(sistemaConsultaLbl,":",sistemaConsultaInp)
-        console.log("")
-        console.log(sintomaPpalLbl,":",sintomaPpalInp)
-        console.log("")
-        console.log(sintomaAsociadoLbl,":",sintomaAsociadoInp)
-        console.log("")
-        console.log("")
-        console.log(modalidadTxt,":",modalidadInp)
-        console.log(indicacionesTxt,"       :",indicacionesInp)
-        console.log("")
-  }
+  //       console.log("Evaluación del riesgo: " + msj);
+  //       console.log("");  
+  //       console.log(textoInformativo);
+  //       console.log("")
+  //       console.log(preguntaTodos);
+  //       console.log("")
+  //       console.log("Respuesta: ", respuestaNo);
+  //       console.log("")
+  //       console.log(sistemaConsultaLbl,":",sistemaConsultaInp)
+  //       console.log("")
+  //       console.log(sintomaPpalLbl,":",sintomaPpalInp)
+  //       console.log("")
+  //       console.log(sintomaAsociadoLbl,":",sintomaAsociadoInp)
+  //       console.log("")
+  //       console.log("")
+  //       console.log(modalidadTxt,":",modalidadInp)
+  //       console.log(indicacionesTxt,"       :",indicacionesInp)
+  //       console.log("")
+  // }
 
   async firmaHistoria() {
     await this.analisisPlan.fill("Prueba");
