@@ -1,20 +1,20 @@
 import { Locator, Page } from '@playwright/test';
 
 export class LoginPHC {
+    private page: Page;
     private linkEmpleado: Locator;
     private usuario: Locator;
     private contrasenia: Locator;
     private botonLogin: Locator;
-    private cerrarX: Locator;
     private btnAtenciontemporal: Locator;
 
     constructor(page: Page) {
-        this.linkEmpleado = page.getByRole('link', { name: 'Empleado Sura' })
-        this.usuario = page.locator('#suranetName')
-        this.contrasenia = page.locator('#suranetPassword')
-        this.botonLogin = page.getByRole('button', { name: 'Iniciar sesión' })
-        this.cerrarX = page.getByRole('link', { name: 'X' })
-        this.btnAtenciontemporal = page.getByRole('button', { name: 'Aceptar' })
+        this.page = page;
+        this.linkEmpleado = this.page.getByRole('link', { name: 'Empleado Sura' })
+        this.usuario = this.page.locator('#suranetName')
+        this.contrasenia = this.page.locator('#suranetPassword')
+        this.botonLogin = this.page.getByRole('button', { name: 'Iniciar sesión' })
+        this.btnAtenciontemporal = this.page.getByRole('button', { name: 'Aceptar' })
     }
 
     async nuevoLoginPHC(usuario: string, contrasenia: string) {
@@ -27,8 +27,7 @@ export class LoginPHC {
         await this.usuario.fill(usuario);
         await this.contrasenia.fill(contrasenia);
         await this.botonLogin.click()
-        await this.cerrarX.click();
-
+        
         if (await this.btnAtenciontemporal.isVisible()) this.btnAtenciontemporal.click()
 
     }

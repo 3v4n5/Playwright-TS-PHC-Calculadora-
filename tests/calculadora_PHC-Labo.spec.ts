@@ -15,7 +15,7 @@ test.describe.parallel("Test Calculadora ERR", () => {
 
     await test.step(" Login ", async () => {
       await page.waitForTimeout(500)
-      await page.goto(BaseUrl.URL_Piloto);
+      await page.goto(BaseUrl.URL_Labo);
       await login.nuevoLoginPHC(Credenciales.PHCUSER, Credenciales.PHCPASSW);
     });
 

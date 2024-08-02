@@ -2,6 +2,8 @@ import { Locator, Page } from '@playwright/test';
 
 export class AtencionPHC {
     private page: Page;
+    private cerrarX: Locator;
+    private btnAtencionTemporal: Locator;
     private abrirBuscar: Locator;
     private tipoDocumento: Locator;
     private inputPaciente: Locator;
@@ -21,7 +23,9 @@ export class AtencionPHC {
 
     constructor(page: Page) {
         this.page = page;
-        this.abrirBuscar = page.locator('#btnOpenFinder')
+        this.cerrarX = this.page.getByRole('link', { name: 'X' })
+        this.btnAtencionTemporal = this.page.getByRole('button', { name: 'Aceptar' })
+        this.abrirBuscar = page.locator("//button[normalize-space(text())='Abrir Buscador']")
         this.tipoDocumento = page.locator("//select[@ng-model='typeIdentification']")
         this.inputPaciente = page.locator('input[name="identificacion"]')
         this.btnBuscar = page.locator('//button[normalize-space()="Buscar paciente"]')
@@ -44,7 +48,13 @@ export class AtencionPHC {
     }
 
     async iniciarNuevaAtencion(tipoDocumento: string, numeroDocumento: string) {
-
+        await this.page.waitForTimeout(800)
+        if(await this.cerrarX.isVisible()) await this.cerrarX.click({force:true});
+        await this.page.waitForTimeout(500)
+        if(await this.btnAtencionTemporal.isVisible()) await this.btnAtencionTemporal.click({force:true});
+            +
+            await this.page.waitForTimeout(500)
+        
         await this.abrirBuscar.click()
         await this.tipoDocumento.selectOption({label: tipoDocumento})
         await this.inputPaciente.fill(numeroDocumento)
@@ -69,11 +79,11 @@ export class AtencionPHC {
         
         await this.page.waitForTimeout(500)
 
-        // if(this.btnRemisionesSLW) this.btnRemisionesSLW.click()
+        if(await this.btnRemisionesSLW.isVisible()) this.btnRemisionesSLW.click()
          
-        //     await this.page.waitForTimeout(200)
-
-        if(await this.btnConsentInform.isVisible()){await this.btnConsentInform.click()} 
+        if(this.btnConsentInform) this.btnConsentInform.click() 
+        
+            await this.page.waitForTimeout(500)
 
         await this.btnIniciarRegistro.click()
 
