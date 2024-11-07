@@ -34,7 +34,7 @@
 5. **Ejecutar un test de Playwright**
    Para verificar que la configuración funciona correctamente, ejecuta:
    ```Bash
-   npx playwright install
+   npx playwright test
 
 ### Opcional: Instalar extensión de Playwright en VSCode
    En VSCode, abre la pestaña de Extensiones.
