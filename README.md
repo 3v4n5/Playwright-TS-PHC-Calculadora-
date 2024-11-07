@@ -36,6 +36,6 @@
    ```Bash
    npx playwright install
 
-##Opcional: Instalar extensión de Playwright en VSCode
+### Opcional: Instalar extensión de Playwright en VSCode
    En VSCode, abre la pestaña de Extensiones.
    Busca e instala la extensión Playwright Test for VSCode para ejecutar y depurar tests directamente desde el editor.
