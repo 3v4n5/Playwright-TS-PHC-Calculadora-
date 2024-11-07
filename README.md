@@ -15,3 +15,8 @@
    ```bash
    git clone <url-del-repositorio>
 
+2. **Abrir el proyecto en Visual Studio Code**
+   Navega a la carpeta del proyecto y abre VSCode:
+   ```bash
+   cd nombre-del-proyecto
+   code .
