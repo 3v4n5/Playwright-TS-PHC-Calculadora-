@@ -1,6 +1,6 @@
 ﻿# Playwright-TS_PHC_CAlculadora ERR
 
- # Pasos para clonar e instalar un proyecto de Playwright en VSCode
+### Pasos para clonar e instalar un proyecto de Playwright en VSCode
 
 ## Prerrequisitos
 - Instalar [Node.js](https://nodejs.org/) (versión 12 o superior).
