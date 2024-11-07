@@ -21,17 +21,17 @@
    cd nombre-del-proyecto
    code .
 
-3. **Instalar las dependencias del proyecto
+3. **Instalar las dependencias del proyecto**
    En VSCode, abre una nueva terminal desde Terminal > New Terminal y asegúrate de estar en la raíz del proyecto. Luego, ejecuta:
    ```bash
    npm install
 
-4. **Instalar Playwright
+4. **Instalar Playwright**
    Ejecuta el siguiente comando para instalar los navegadores necesarios y configurar Playwright:
    ```Bash
    npx playwright install
 
-5. **Ejecutar un test de Playwright
+5. **Ejecutar un test de Playwright**
    Para verificar que la configuración funciona correctamente, ejecuta:
    ```Bash
    npx playwright install
